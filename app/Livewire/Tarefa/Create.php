@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Tarefa;
 
+use App\Models\Tarefa;
 use Livewire\Component;
 
 class Create extends Component
@@ -16,9 +17,13 @@ class Create extends Component
     }
 
     public function store(){
-        dd($this->nome, $this->data_hora, $this->descricao); 
-        // this serve para dizer que as variaveis estao sendo acessadas dentro da função
-        //dd é tipo um return. ele para a programação e mostra o que tem dentro 
+       Tarefa::create([
+        'nome'=> $this->nome,
+        'data_hora'=>$this->data_hora,
+        'descricao'=>$this->descricao
+       ]) ;
+
+       session()->flash('success', 'Cadastro Realizado'); // é tipo um return, para aparecer o alerta
     }
 }
 // lógica da tarefa
