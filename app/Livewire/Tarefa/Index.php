@@ -33,6 +33,10 @@ class Index extends Component
         $this->tarefaId = $tarefaId;
     }
 
+    public function abrirModalEdicao($tarefaId){
+        $this->dispatch('editarTarefa', tarefaId: $tarefaId);
+    }
+
     public function excluir(){
         if($this->tarefaId){
             Tarefa::find($this->tarefaId)->delete();
