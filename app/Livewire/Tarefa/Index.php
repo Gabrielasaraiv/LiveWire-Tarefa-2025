@@ -13,6 +13,12 @@ class Index extends Component
     public $data_hora;
     public $descricao;
 
+    protected $listeners = [
+        'abrirModalEdicao',
+        'tarefaAtualizada'=>'render',
+
+    ];
+
     public function render()
     {
         $tarefas = Tarefa::all();

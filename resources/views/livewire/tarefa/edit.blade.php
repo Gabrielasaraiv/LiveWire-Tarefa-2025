@@ -29,5 +29,24 @@ aparecer dentro da modal, caso não use, a tela vai ficar cinza --}}
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            Livewire.on('fecharModalEdicao', function(){
+                var modal = document.getElementById('editModal');
+                var modalInstance = bootstrap.Modal.getInstance(modal);
+
+                if(modalInstance){
+                    modalInstance.hide();
+                } else {
+                    var newModal = new bootstrap.modal(modal);
+                    newModal.hide();
+                }
+
+                document.querySelectorAll('.modal-backdrop')
+                .forEach(el => el.remove());
+                document.body.classList.remove('modal-open');
+            });
+        });
+    </script>
 </div>
 
