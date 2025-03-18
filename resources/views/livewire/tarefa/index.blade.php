@@ -25,6 +25,9 @@
 
                                 <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal" wire:click="abrirModalExclusao({{ $t->id }})">Excluir</button>
+
+                                    <a href="{{route('tarefa.editar', ['id' => $t->id])}}" class="btn btn-info btn-sm">Editar Sem Modal</a>
+                                    {{-- route acessa a rota com o nome que atribuimos. O id vincula com o id da tarefa, pois na rota pedimos um id --}}
                             </td>
                         </tr>
                     @endforeach
